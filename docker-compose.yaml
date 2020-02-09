@@ -1,0 +1,10 @@
+version: '3'
+services:
+  notebook:
+    image: jupyter/all-spark-notebook
+    ports:
+      - 8888:8888
+    environment:
+      - PYSPARK_SUBMIT_ARGS=--packages io.delta:delta-core_2.11:0.4.0 pyspark-shell
+    volumes:
+      - ./work:/home/jovyan/work
